@@ -54,7 +54,6 @@ public class GameUI : MonoBehaviour
         {
             if(i.GetComponent<BoltEntity>().Source == null)
             {
-                if (gsm.state.ConnectedPlayers[gsm.state.CurrentPlayerID].NetworkId != i.GetComponent<BoltEntity>().NetworkId) return;
                 i.GetComponent<PlayerController>().Place_Card(hand_index);
                 return;
             }

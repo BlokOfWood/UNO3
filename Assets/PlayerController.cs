@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerController : Bolt.EntityBehaviour<IPlayerState>
 {
+    public Color on_turn_color;
+    public Color off_turn_color;
+    int draw_cards = 0;
     GameObject[] card_objects;
     GameObject top_card;
     public int page_number = 0;
@@ -20,11 +23,11 @@ public class PlayerController : Bolt.EntityBehaviour<IPlayerState>
         }
         if(gsm.state.ConnectedPlayers[gsm.state.CurrentPlayerID].NetworkId == GetComponent<BoltEntity>().NetworkId)
         {
-            Camera.main.backgroundColor = Color.HSVToRGB(116, 82, 64);
+            Camera.main.backgroundColor = on_turn_color;
         }
         else
         {
-            Camera.main.backgroundColor = Color.HSVToRGB(337,82,64);
+            Camera.main.backgroundColor = off_turn_color;
         }
     }
 
@@ -38,7 +41,24 @@ public class PlayerController : Bolt.EntityBehaviour<IPlayerState>
     {
         GameStateManager gsm = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameStateManager>();
         var card = state.Hand[page_number * 10 + hand_index];
-        int card_type = card.Type;
+
+        if (gsm.state.CurrentTopCard.Color == card.Color && gsm.state.CurrentTopCard.Type == card.Type && card.Color != -1 && card.Type < 9)
+        {
+            NewTopDeck ntd_evnt = NewTopDeck.Create();
+            ntd_evnt.Color = card.Color;
+            ntd_evnt.Type = card.Type;
+            ntd_evnt.Send();
+            state.Hand[page_number * 10 + hand_index].Type = -4;
+            if (page_number * 10 + hand_index != state.Hand.Length - 1)
+                for (int i = page_number * 10 + hand_index + 1; i < state.Hand.Length; i++)
+                {
+                    state.Hand[i - 1].Color = state.Hand[i].Color;
+                    state.Hand[i - 1].Type = state.Hand[i].Type;
+                }
+        }
+
+        if (gsm.state.ConnectedPlayers[gsm.state.CurrentPlayerID].NetworkId != GetComponent<BoltEntity>().NetworkId) return;
+
         if (card.Color == -1)
         {
             GameObject.Find("Canvas").GetComponent<GameUI>().BringUpCardChoose((Card.Card_Type)card.Type, page_number*10 + hand_index);
@@ -70,8 +90,8 @@ public class PlayerController : Bolt.EntityBehaviour<IPlayerState>
                 state.Hand[i - 1].Type = state.Hand[i].Type;
             }
             NextRound nr_evnt = NextRound.Create();
-            nr_evnt.Skip = (card_type == (int)Card.Card_Type.DENIAL);
-            nr_evnt.Reverse = (card_type == (int)Card.Card_Type.REVERSE);
+            nr_evnt.Skip = (card.Type == (int)Card.Card_Type.DENIAL);
+            nr_evnt.Reverse = (card.Type == (int)Card.Card_Type.REVERSE);
             nr_evnt.Send();
         }
     }

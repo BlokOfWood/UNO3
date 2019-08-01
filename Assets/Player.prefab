@@ -73,4 +73,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f3c6e4310de37f4ca6639f64c0ce8a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  on_turn_color: {r: 0.2402205, g: 0.7075472, b: 0.18356179, a: 0}
+  off_turn_color: {r: 0.6509434, g: 0.16887684, b: 0.16887684, a: 0}
   page_number: 0

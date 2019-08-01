@@ -35,9 +35,26 @@ public class GameStateManager : Bolt.EntityBehaviour<IGameState>
                 state.ConnectedPlayers[number_of_players - 1 - i] = first_swapped;
             }
         }
-        if (state.CurrentPlayerID == number_of_players - 1) state.CurrentPlayerID = 0;
-        else
-            state.CurrentPlayerID++;
+        for(int i = state.CurrentPlayerID; i < number_of_players; i++)
+        {
+            int player_card_num = 0;
+            if (state.CurrentPlayerID == number_of_players - 1) state.CurrentPlayerID = 0;
+            else
+                state.CurrentPlayerID++;
+            foreach (var card in state.ConnectedPlayers[i].GetState<IPlayerState>().Hand)
+            {
+                if (card.Type == -4) break;
+                player_card_num++;
+            }
+            if (player_card_num > 0) return;
+            state.ConnectedPlayers[i] = null;
+            for(int y = i + 1; y < number_of_players; y++)
+            {
+                BoltEntity replaced = state.ConnectedPlayers[y - 1];
+                state.ConnectedPlayers[y - 1] = state.ConnectedPlayers[y];
+                state.ConnectedPlayers[y] = replaced;
+            }
+        }
     }
     public void Set_Max_Players(string value)
     {
