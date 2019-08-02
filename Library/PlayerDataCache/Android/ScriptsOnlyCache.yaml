@@ -834,4 +834,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/MenuScene.unity
   - Assets/Scenes/LobbyScene.unity
   - Assets/Scenes/GameScene.unity
-  playerPath: C:/Users/Strik/Documents/GitHub/UNO3/Builds/Android/uno.apk
+  playerPath: C:/Users/sando/OneDrive/Dokumentumok/GitHub/UNO3/Builds/Android/uno.apk

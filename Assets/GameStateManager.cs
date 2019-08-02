@@ -40,15 +40,21 @@ public class GameStateManager : Bolt.EntityBehaviour<IGameState>
                 if (card.Type == -4) break;
                 player_card_num++;
             }
-            if (skip) skip = false;
-            else
-            if (player_card_num > 0) return;
-            state.ConnectedPlayers[i] = null;
-            for(int y = i + 1; y < number_of_players; y++)
+            if (player_card_num > 0)
             {
-                BoltEntity replaced = state.ConnectedPlayers[y - 1];
-                state.ConnectedPlayers[y - 1] = state.ConnectedPlayers[y];
-                state.ConnectedPlayers[y] = replaced;
+                if (skip) skip = false;
+                else
+                    return;
+            }
+            else
+            {
+                state.ConnectedPlayers[i] = null;
+                for (int y = i + 1; y < number_of_players; y++)
+                {
+                    BoltEntity replaced = state.ConnectedPlayers[y - 1];
+                    state.ConnectedPlayers[y - 1] = state.ConnectedPlayers[y];
+                    state.ConnectedPlayers[y] = replaced;
+                }
             }
         }
     }

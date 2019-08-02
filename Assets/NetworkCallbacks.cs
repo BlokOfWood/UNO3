@@ -48,7 +48,7 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
             target = gsm.state.ConnectedPlayers[0];
         }
 
-        GameObject.FindGameObjectWithTag("GameController").GetComponent<GameStateManager>().Draw_From_Deck_Multiple(target, evnt.NumberOfCards);
+        gsm.Draw_From_Deck_Multiple(target, evnt.NumberOfCards);
     }
 
     public override void OnEvent(PutCard evnt)
@@ -86,6 +86,18 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
             GameObject.FindGameObjectWithTag("GameController").GetComponent<GameStateManager>().state.CurrentTopCard.Type = evnt.Type;
             GameObject.FindGameObjectWithTag("GameController").GetComponent<GameStateManager>().state.CurrentTopCard.Origin = evnt.OriginID;
         }
+    }
+
+    public override void OnEvent(NextPlayerMustDraw evnt)
+    {
+        
+    }
+
+    public override void OnEvent(SpecificPlusN evnt)
+    {
+        if (GameObject.FindGameObjectWithTag("GameController").GetComponent<BoltEntity>().Source != null)
+            return;
+        GameObject.FindGameObjectWithTag("GameController").GetComponent<GameStateManager>().Draw_From_Deck_Multiple(evnt.Target, evnt.NumberOfCards);
     }
 
     public override void Connected(BoltConnection connection)

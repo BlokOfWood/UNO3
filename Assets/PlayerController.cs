@@ -52,12 +52,13 @@ public class PlayerController : Bolt.EntityBehaviour<IPlayerState>
         }
 
         var card = state.Hand[page_number * 10 + hand_index];
+        int card_type = card.Type;
 
-        if (gsm.state.CurrentTopCard.Color == card.Color && gsm.state.CurrentTopCard.Type == card.Type && card.Color != -1 && card.Type < 9)
+        if (gsm.state.CurrentTopCard.Color == card.Color && gsm.state.CurrentTopCard.Type == card_type && card.Color != -1 && card_type < 9)
         {
             NewTopDeck ntd_evnt = NewTopDeck.Create();
             ntd_evnt.Color = card.Color;
-            ntd_evnt.Type = card.Type;
+            ntd_evnt.Type = card_type;
             ntd_evnt.OriginID = player_id;
             ntd_evnt.Send();
             state.Hand[page_number * 10 + hand_index].Type = -4;
@@ -84,7 +85,7 @@ public class PlayerController : Bolt.EntityBehaviour<IPlayerState>
         if (player_id > 0 && player_id - 1 == gsm.state.CurrentTopCard.Origin) last_player_denied = true;
         if (player_id == 0 && last_connected_player == gsm.state.CurrentTopCard.Origin) last_player_denied = true;
 
-        if (gsm.state.CurrentTopCard.Type == (int)Card.Card_Type.DENIAL && card.Type == (int)Card.Card_Type.DENIAL && last_player_denied)
+        if (gsm.state.CurrentTopCard.Type == (int)Card.Card_Type.DENIAL && card_type == (int)Card.Card_Type.DENIAL && last_player_denied)
         {
             NextRound nr_event = NextRound.Create();
             nr_event.Send();
@@ -94,7 +95,11 @@ public class PlayerController : Bolt.EntityBehaviour<IPlayerState>
 
         if (card.Color == -1)
         {
-            GameObject.Find("Canvas").GetComponent<GameUI>().BringUpCardChoose((Card.Card_Type)card.Type, page_number*10 + hand_index);
+            if(card.Type == (int)Card.Card_Type.PLUS_FOUR)
+            {
+                draw_cards = 0;
+            }
+            GameObject.Find("Canvas").GetComponent<GameUI>().BringUpCardChoose((Card.Card_Type)card_type, page_number*10 + hand_index);
             state.Hand[page_number * 10 + hand_index].Type = -4;
             if (page_number * 10 + hand_index != state.Hand.Length - 1)
                 for (int i = page_number * 10 + hand_index + 1; i < state.Hand.Length; i++)
@@ -103,9 +108,10 @@ public class PlayerController : Bolt.EntityBehaviour<IPlayerState>
                     state.Hand[i - 1].Type = state.Hand[i].Type;
                 }
         }
-        else if(gsm.state.CurrentTopCard.Color == card.Color || gsm.state.CurrentTopCard.Type == card.Type)
+        else if(gsm.state.CurrentTopCard.Color == card.Color || gsm.state.CurrentTopCard.Type == card_type)
         {
-            if (card.Type == (int)Card.Card_Type.PLUS_TWO)
+            Debug.Log("lol");
+            if (card_type == (int)Card.Card_Type.PLUS_TWO)
             {
                 PlusN evnt = PlusN.Create();
                 evnt.NumberOfCards = 2;
@@ -113,7 +119,7 @@ public class PlayerController : Bolt.EntityBehaviour<IPlayerState>
             }
             NewTopDeck ntd_evnt = NewTopDeck.Create();
             ntd_evnt.Color = card.Color;
-            ntd_evnt.Type = card.Type;
+            ntd_evnt.Type = card_type;
             ntd_evnt.OriginID = player_id;
             ntd_evnt.Send();
             state.Hand[page_number * 10 + hand_index].Type = -4;
@@ -123,11 +129,16 @@ public class PlayerController : Bolt.EntityBehaviour<IPlayerState>
                 state.Hand[i - 1].Color = state.Hand[i].Color;
                 state.Hand[i - 1].Type = state.Hand[i].Type;
             }
+            Debug.Log(card_type);
             NextRound nr_evnt = NextRound.Create();
-            nr_evnt.Skip = (card.Type == (int)Card.Card_Type.DENIAL);
-            nr_evnt.Reverse = (card.Type == (int)Card.Card_Type.REVERSE);
+            nr_evnt.Skip = (card_type == (int)Card.Card_Type.DENIAL);
+            nr_evnt.Reverse = (card_type == (int)Card.Card_Type.REVERSE);
             nr_evnt.Send();
         }
+        SpecificPlusN draw_from_deck = SpecificPlusN.Create();
+        draw_from_deck.NumberOfCards = draw_cards;
+        draw_from_deck.Target = entity;
+        draw_from_deck.Send();
     }
 
     public void Load_Refs()

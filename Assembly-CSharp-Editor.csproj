@@ -70,46 +70,46 @@
     <None Include="Assets\bolt\assemblies\editor\protobuf-net.LICENSE.txt" />
     <None Include="Assets\bolt\assemblies\editor\bolt.compiler.xml" />
     <Reference Include="UnityEditor.TestRunner">
-      <HintPath>C:/Users/Strik/Documents/GitHub/UNO3/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
+      <HintPath>C:/Users/sando/OneDrive/Dokumentumok/GitHub/UNO3/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.TestRunner">
-      <HintPath>C:/Users/Strik/Documents/GitHub/UNO3/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
+      <HintPath>C:/Users/sando/OneDrive/Dokumentumok/GitHub/UNO3/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>C:/Users/Strik/Documents/GitHub/UNO3/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>C:/Users/sando/OneDrive/Dokumentumok/GitHub/UNO3/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>C:/Users/Strik/Documents/GitHub/UNO3/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>C:/Users/sando/OneDrive/Dokumentumok/GitHub/UNO3/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/Strik/Documents/GitHub/UNO3/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/Users/sando/OneDrive/Dokumentumok/GitHub/UNO3/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>C:/Users/Strik/Documents/GitHub/UNO3/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>C:/Users/sando/OneDrive/Dokumentumok/GitHub/UNO3/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>C:/Users/Strik/Documents/GitHub/UNO3/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>C:/Users/sando/OneDrive/Dokumentumok/GitHub/UNO3/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>C:/Users/Strik/Documents/GitHub/UNO3/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>C:/Users/sando/OneDrive/Dokumentumok/GitHub/UNO3/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>C:/Users/Strik/Documents/GitHub/UNO3/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>C:/Users/sando/OneDrive/Dokumentumok/GitHub/UNO3/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Sprite.Editor">
-      <HintPath>C:/Users/Strik/Documents/GitHub/UNO3/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+      <HintPath>C:/Users/sando/OneDrive/Dokumentumok/GitHub/UNO3/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Tilemap.Editor">
-      <HintPath>C:/Users/Strik/Documents/GitHub/UNO3/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
+      <HintPath>C:/Users/sando/OneDrive/Dokumentumok/GitHub/UNO3/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualStudio.Editor">
-      <HintPath>C:/Users/Strik/Documents/GitHub/UNO3/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
+      <HintPath>C:/Users/sando/OneDrive/Dokumentumok/GitHub/UNO3/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/Strik/Documents/GitHub/UNO3/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Users/sando/OneDrive/Dokumentumok/GitHub/UNO3/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>C:/Users/Strik/Documents/GitHub/UNO3/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>C:/Users/sando/OneDrive/Dokumentumok/GitHub/UNO3/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.2.0f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -304,43 +304,43 @@
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/16.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
     <Reference Include="bolt">
-      <HintPath>C:/Users/Strik/Documents/GitHub/UNO3/Assets/bolt/assemblies/bolt.dll</HintPath>
+      <HintPath>C:/Users/sando/OneDrive/Dokumentumok/GitHub/UNO3/Assets/bolt/assemblies/bolt.dll</HintPath>
     </Reference>
     <Reference Include="bolt.user">
-      <HintPath>C:/Users/Strik/Documents/GitHub/UNO3/Assets/bolt/assemblies/bolt.user.dll</HintPath>
+      <HintPath>C:/Users/sando/OneDrive/Dokumentumok/GitHub/UNO3/Assets/bolt/assemblies/bolt.user.dll</HintPath>
     </Reference>
     <Reference Include="bolt.compiler">
-      <HintPath>C:/Users/Strik/Documents/GitHub/UNO3/Assets/bolt/assemblies/editor/bolt.compiler.dll</HintPath>
+      <HintPath>C:/Users/sando/OneDrive/Dokumentumok/GitHub/UNO3/Assets/bolt/assemblies/editor/bolt.compiler.dll</HintPath>
     </Reference>
     <Reference Include="bolt.editor">
-      <HintPath>C:/Users/Strik/Documents/GitHub/UNO3/Assets/bolt/assemblies/editor/bolt.editor.dll</HintPath>
+      <HintPath>C:/Users/sando/OneDrive/Dokumentumok/GitHub/UNO3/Assets/bolt/assemblies/editor/bolt.editor.dll</HintPath>
     </Reference>
     <Reference Include="protobuf-net">
-      <HintPath>C:/Users/Strik/Documents/GitHub/UNO3/Assets/bolt/assemblies/editor/protobuf-net.dll</HintPath>
+      <HintPath>C:/Users/sando/OneDrive/Dokumentumok/GitHub/UNO3/Assets/bolt/assemblies/editor/protobuf-net.dll</HintPath>
     </Reference>
     <Reference Include="udpkit.common">
-      <HintPath>C:/Users/Strik/Documents/GitHub/UNO3/Assets/bolt/assemblies/udpkit/udpkit.common.dll</HintPath>
+      <HintPath>C:/Users/sando/OneDrive/Dokumentumok/GitHub/UNO3/Assets/bolt/assemblies/udpkit/udpkit.common.dll</HintPath>
     </Reference>
     <Reference Include="udpkit">
-      <HintPath>C:/Users/Strik/Documents/GitHub/UNO3/Assets/bolt/assemblies/udpkit/udpkit.dll</HintPath>
+      <HintPath>C:/Users/sando/OneDrive/Dokumentumok/GitHub/UNO3/Assets/bolt/assemblies/udpkit/udpkit.dll</HintPath>
     </Reference>
     <Reference Include="udpkit.platform.dotnet">
-      <HintPath>C:/Users/Strik/Documents/GitHub/UNO3/Assets/bolt/assemblies/udpkit/udpkit.platform.dotnet.dll</HintPath>
+      <HintPath>C:/Users/sando/OneDrive/Dokumentumok/GitHub/UNO3/Assets/bolt/assemblies/udpkit/udpkit.platform.dotnet.dll</HintPath>
     </Reference>
     <Reference Include="udpkit.platform.null">
-      <HintPath>C:/Users/Strik/Documents/GitHub/UNO3/Assets/bolt/assemblies/udpkit/udpkit.platform.null.dll</HintPath>
+      <HintPath>C:/Users/sando/OneDrive/Dokumentumok/GitHub/UNO3/Assets/bolt/assemblies/udpkit/udpkit.platform.null.dll</HintPath>
     </Reference>
     <Reference Include="udpkit.platform.photon">
-      <HintPath>C:/Users/Strik/Documents/GitHub/UNO3/Assets/bolt/assemblies/udpkit/udpkit.platform.photon.dll</HintPath>
+      <HintPath>C:/Users/sando/OneDrive/Dokumentumok/GitHub/UNO3/Assets/bolt/assemblies/udpkit/udpkit.platform.photon.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>C:/Users/Strik/Documents/GitHub/UNO3/Assets/Plugins/JsonDotNet/Assemblies/Standalone/Newtonsoft.Json.dll</HintPath>
+      <HintPath>C:/Users/sando/OneDrive/Dokumentumok/GitHub/UNO3/Assets/Plugins/JsonDotNet/Assemblies/Standalone/Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Photon3Unity3D">
-      <HintPath>C:/Users/Strik/Documents/GitHub/UNO3/Assets/Plugins/PhotonRealtime/Photon3Unity3D.dll</HintPath>
+      <HintPath>C:/Users/sando/OneDrive/Dokumentumok/GitHub/UNO3/Assets/Plugins/PhotonRealtime/Photon3Unity3D.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
-      <HintPath>C:/Users/Strik/Documents/GitHub/UNO3/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
+      <HintPath>C:/Users/sando/OneDrive/Dokumentumok/GitHub/UNO3/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.2.0f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
