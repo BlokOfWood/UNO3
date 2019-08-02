@@ -40,6 +40,17 @@ public class PlayerController : Bolt.EntityBehaviour<IPlayerState>
     public void Place_Card(int hand_index)
     {
         GameStateManager gsm = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameStateManager>();
+
+        int player_id = 0;
+        for(int i = 0; i < gsm.state.ConnectedPlayers.Length; i++)
+        {
+            if(gsm.state.ConnectedPlayers[i].NetworkId == entity.NetworkId)
+            {
+                player_id = i;
+                break;
+            }
+        }
+
         var card = state.Hand[page_number * 10 + hand_index];
 
         if (gsm.state.CurrentTopCard.Color == card.Color && gsm.state.CurrentTopCard.Type == card.Type && card.Color != -1 && card.Type < 9)
@@ -47,6 +58,7 @@ public class PlayerController : Bolt.EntityBehaviour<IPlayerState>
             NewTopDeck ntd_evnt = NewTopDeck.Create();
             ntd_evnt.Color = card.Color;
             ntd_evnt.Type = card.Type;
+            ntd_evnt.OriginID = player_id;
             ntd_evnt.Send();
             state.Hand[page_number * 10 + hand_index].Type = -4;
             if (page_number * 10 + hand_index != state.Hand.Length - 1)
@@ -55,6 +67,27 @@ public class PlayerController : Bolt.EntityBehaviour<IPlayerState>
                     state.Hand[i - 1].Color = state.Hand[i].Color;
                     state.Hand[i - 1].Type = state.Hand[i].Type;
                 }
+        }
+
+
+        int last_connected_player = 0;
+        for (int i = gsm.state.ConnectedPlayers.Length - 1; i > -1; i--)
+        {
+            if (gsm.state.ConnectedPlayers[i] != null)
+            {
+                last_connected_player = i;
+                break;
+            }
+        }
+
+        bool last_player_denied = false;
+        if (player_id > 0 && player_id - 1 == gsm.state.CurrentTopCard.Origin) last_player_denied = true;
+        if (player_id == 0 && last_connected_player == gsm.state.CurrentTopCard.Origin) last_player_denied = true;
+
+        if (gsm.state.CurrentTopCard.Type == (int)Card.Card_Type.DENIAL && card.Type == (int)Card.Card_Type.DENIAL && last_player_denied)
+        {
+            NextRound nr_event = NextRound.Create();
+            nr_event.Send();
         }
 
         if (gsm.state.ConnectedPlayers[gsm.state.CurrentPlayerID].NetworkId != GetComponent<BoltEntity>().NetworkId) return;
@@ -81,6 +114,7 @@ public class PlayerController : Bolt.EntityBehaviour<IPlayerState>
             NewTopDeck ntd_evnt = NewTopDeck.Create();
             ntd_evnt.Color = card.Color;
             ntd_evnt.Type = card.Type;
+            ntd_evnt.OriginID = player_id;
             ntd_evnt.Send();
             state.Hand[page_number * 10 + hand_index].Type = -4;
             if(page_number * 10 + hand_index != state.Hand.Length-1)

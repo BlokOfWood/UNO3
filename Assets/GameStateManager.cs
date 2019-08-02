@@ -18,13 +18,7 @@ public class GameStateManager : Bolt.EntityBehaviour<IGameState>
             if (i == null) break;
             number_of_players++;
         }
-        if (skip)
-        {
-            if (state.CurrentPlayerID == number_of_players - 1) state.CurrentPlayerID = 0;
-            else
-                state.CurrentPlayerID++;
-        }
-        else if(reverse && number_of_players > 1)
+        if(reverse && number_of_players > 1)
         {
             for(int i = 0; i < Mathf.FloorToInt((float)number_of_players/2); i++)
             {
@@ -46,6 +40,8 @@ public class GameStateManager : Bolt.EntityBehaviour<IGameState>
                 if (card.Type == -4) break;
                 player_card_num++;
             }
+            if (skip) skip = false;
+            else
             if (player_card_num > 0) return;
             state.ConnectedPlayers[i] = null;
             for(int y = i + 1; y < number_of_players; y++)

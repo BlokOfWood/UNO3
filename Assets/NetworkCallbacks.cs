@@ -84,6 +84,7 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
         {
             GameObject.FindGameObjectWithTag("GameController").GetComponent<GameStateManager>().state.CurrentTopCard.Color = evnt.Color;
             GameObject.FindGameObjectWithTag("GameController").GetComponent<GameStateManager>().state.CurrentTopCard.Type = evnt.Type;
+            GameObject.FindGameObjectWithTag("GameController").GetComponent<GameStateManager>().state.CurrentTopCard.Origin = evnt.OriginID;
         }
     }
 
