@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour
 { 
     void Update()
     {
+        //Disables all player objects so they don't overlap with the main player's UI? Maybe? Don't exactly remember the thought process.
+        //If you are really curious, comment this out and see what happens.
         foreach(GameObject i in GameObject.FindGameObjectsWithTag("Player"))
         {
             if(i.GetComponent<BoltEntity>().Source != null)

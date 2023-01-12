@@ -7,6 +7,8 @@ using UnityEditor;
 
 public class Card : MonoBehaviour
 {
+    /* Big mistake with the usage of enums is that I could have used them way more to improve readability.
+       Tho in my defense in Bolt they can only be stored as ints, so that was how they could be accessed as from the network.*/
     public enum Card_Color
     {
         SPECIAL_CARDS = -1,
@@ -44,11 +46,13 @@ public class Card : MonoBehaviour
 
     void Start()
     {
+        //Loads all card images from the 8671 file. (it is located in the Resources folder. unity puts stuff in the resource folder into the actual game when you build the project)
         card_sprites = Resources.LoadAll("8671").OfType<Sprite>().ToArray();
     }
 
     void Update()
     {
+        //-4 is used as a null signifier, because it is a value not used to represent anything else, so stuff can't accidentally become -4
         if ((int)type == -4)
         {
             GetComponent<Image>().sprite = null;
